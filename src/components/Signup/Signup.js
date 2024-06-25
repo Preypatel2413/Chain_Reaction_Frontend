@@ -73,7 +73,7 @@ const SignUp = () => {
 
     return (
         <>
-            <div>
+            <div className='form-container'>
       {/* <h2>Sign Up</h2> */}
       <form onSubmit={handleSignup}>
       <CSRFToken />
@@ -93,8 +93,9 @@ const SignUp = () => {
         Confirm Password:
         <input type="password" name="password2" value={formData.password2} onChange={handleChange} />
       </label>
-      <button type="submit">Sign Up</button>
-        
+      <div className='bd-sgn'>
+      <button type="submit" className='submit'>Sign Up</button>
+      </div>
       </form>
     </div>
 

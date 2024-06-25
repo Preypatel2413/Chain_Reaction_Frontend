@@ -67,19 +67,20 @@ const Login = () => {
 
     return (
         <>
-        <div>
+        <div className='form-container'>
             <form onSubmit={handleLogin}>
             {/* <CSRFToken /> */}
             <label>
                 Username:
-                <input type="text" name="username" value={formData.username} onChange={handleChange} />
+                <input className="input" type="text" name="username" value={formData.username} onChange={handleChange} />
             </label>
             <label>
                 Password:
-                <input type="password" name="password" value={formData.password} onChange={handleChange} />
+                <input className="input" type="password" name="password" value={formData.password} onChange={handleChange} />
             </label>
-            <button type="submit">Login</button>
-                
+            <div className='bd-lgn'>
+            <button type="submit" className='submit'>Login</button>
+            </div>
             </form>
         </div>
         </>

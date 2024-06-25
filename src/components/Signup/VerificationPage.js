@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SignUp from './Signup';
 import Login from './Login';
+import Atoms from '../Home/Atoms';
 import './verification.css'
 
 const Verification = () => {
   const [isSignupMode, setSignupMode] = useState(true);
 
-  const toggleMode = () => {
-    setSignupMode((prevMode) => !prevMode);
-  };
+  // const toggleMode = () => {
+  //   setSignupMode((prevMode) => !prevMode);
+  // };
 
   return (
     <>
@@ -20,16 +21,18 @@ const Verification = () => {
     
     <div className="verification-container">
       <div className="toggle-buttons">
-        <button className={isSignupMode ? 'active' : ''} onClick={() => setSignupMode(true)}>
+        <button className={isSignupMode ? 'sgn' : ''} onClick={() => setSignupMode(true)}>
           Signup
         </button>
-        <button className={!isSignupMode ? 'active' : ''} onClick={() => setSignupMode(false)}>
+        <button className={!isSignupMode ? 'lgn' : ''} onClick={() => setSignupMode(false)}>
           Login
         </button>
       </div>
 
       {isSignupMode ? <SignUp /> : <Login />}
     </div>
+
+    <div id="light"><Atoms /></div>
     </>
   );
 };

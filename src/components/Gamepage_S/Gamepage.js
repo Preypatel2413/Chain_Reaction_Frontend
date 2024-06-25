@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import backend from '../global';
-import './Gamepage.css'
-import b3 from '../static_images/B_3.png'
-import b2 from '../static_images/B_2.png'
-import b1 from '../static_images/B_1.png'
-import g3 from '../static_images/G_3.png'
-import g2 from '../static_images/G_2.png'
-import g1 from '../static_images/G_1.png'
-import b0 from '../static_images/0.png'
+import './Gamepage.css';
+import b3 from '../static_images/B_3.png';
+import b2 from '../static_images/B_2.png';
+import b1 from '../static_images/B_1.png';
+import g3 from '../static_images/G_3.png';
+import g2 from '../static_images/G_2.png';
+import g1 from '../static_images/G_1.png';
+import b0 from '../static_images/0.png';
 
 
 const Game_SP = () =>{
@@ -115,8 +115,8 @@ const Game_SP = () =>{
 
 
     return (
-        <div className="game-page-container">
         <>
+        <div className="game-page-container">
         <h1>Chain Reaction</h1>
         {/* <br /> */}
         <div>
@@ -140,8 +140,9 @@ const Game_SP = () =>{
             ))}
             </table>
         </div>
-        </>
         </div>
+        </>
+        
     )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import icn from '../static_images/profile.png';
 
 const Header = () =>{
     return (
@@ -8,7 +9,7 @@ const Header = () =>{
             <Link to ={process.env.PUBLIC_URL + "/Profile/"}>
             <img 
                 type="image/png"
-                src="https://user-images.githubusercontent.com/76490445/252639953-aab47d71-e29a-4f7e-8998-af6cd161be52.jpg"
+                src={icn}
                 alt="Profile Icon"
                 style={{ width: '50px', height: '50px', borderRadius: '50%', mixBlendMode: "darken"}}
                 />

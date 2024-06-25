@@ -61,13 +61,7 @@
     text-align: center;
 }
 
-.button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
+
 
 .profile-page-container h1{
     font-family: 'Papyrus', sans-serif;
@@ -91,6 +85,29 @@
     font-family: 'Trebuchet MS', sans-serif;
     font-weight: bold;
     size: 24px;
+}
+
+.profile-page-container input{
+    width: 55%;
+    height: 35px;
+    font-Family: Tahoma, sans-serif;
+    font-size: 18px;
+    padding-left: 10px;
+}
+.profile-page-container .button {
+    width: 35%;
+    height: 35px;
+    font-Family: Tahoma, sans-serif;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.tmp{
+    margin-bottom: 50px;
+    margin-left: 50px;
 }
 
 .profile-page-container  #light {

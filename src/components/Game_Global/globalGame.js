@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import backend from '../global';
-import b3 from '../static_images/B_3.png'
-import b2 from '../static_images/B_2.png'
-import b1 from '../static_images/B_1.png'
-import g3 from '../static_images/G_3.png'
-import g2 from '../static_images/G_2.png'
-import g1 from '../static_images/G_1.png'
-import b0 from '../static_images/0.png'
+import b3 from '../static_images/B_3.png';
+import b2 from '../static_images/B_2.png';
+import b1 from '../static_images/B_1.png';
+import g3 from '../static_images/G_3.png';
+import g2 from '../static_images/G_2.png';
+import g1 from '../static_images/G_1.png';
+import b0 from '../static_images/0.png';
 
 
 const Game_GP = () => {
@@ -59,8 +59,8 @@ const Game_GP = () => {
 
     const connectWS = () => {
         console.log("roomname : " + roomName)
-        console.log('ws://127.0.0.1:8000/ws/Game/' + roomName)
-        var socket = new WebSocket('ws://127.0.0.1:8000/ws/Game/' + roomName);
+        console.log('ws://10.7.24.100:8000/ws/Game/' + roomName)
+        var socket = new WebSocket('ws://10.7.24.100:8000/ws/Game/' + roomName);
         socket.onmessage = function (e) {
             var data = JSON.parse(e.data);
             var message = data.message;
@@ -222,11 +222,12 @@ const Game_GP = () => {
     };
 
     return (
-        <div className="game-page-container">
         <>
+        <div className="game-page-container">
         <h1>Chain Reaction</h1>
         {/* <br /> */}
-        <div>
+        <div class = "game-container">
+        <div className='game-board'>
             <table className={move % 2 === 1 ? 'tab1' : 'tab2'} align="center">
             {Position.map((row, rowIndex) => (
                 <tr key={rowIndex}>
@@ -250,37 +251,37 @@ const Game_GP = () => {
 
 
         <div class="chat-panel">
-        <div class="user-details"><table>
-            <tr>
-                <th><h3>{user[0]}</h3></th>
-                <th><h3>{user[1]}</h3></th>
-                <th><h3>{user[2]}</h3></th>
-            </tr>
-        </table></div>
-        <div class="chat-messages">
-            <table class="chat-table">
-                {chat.map((message, Index) => (
-                    <div>{renderChat(message)}</div>
-                ))}
+            <div class="user-details"><table>
+                <tr>
+                    <th><h3>{user[0]}</h3></th>
+                    <th><h3>{user[1]}</h3></th>
+                    <th><h3>{user[2]}</h3></th>
+                </tr>
+            </table></div>
+            <div class="chat-messages">
+                <table class="chat-table">
+                    {chat.map((message, Index) => (
+                        <div>{renderChat(message)}</div>
+                    ))}
 
-            </table>
+                </table>
+            </div>
+
+            <div class="chat-input">
+            <input type="text" id="message" placeholder="send a message"/>
+            <button class="sendbutton" onClick={()=>SendMessage()}> Send </button>
+            </div>
+
+            <div class="opponent-details"><table>
+                <tr><th><h3>{opp[0]}</h3></th>
+                    <th><h3>{opp[1]}</h3></th>
+                    <th><h3>{opp[2]}</h3></th>
+                </tr>
+            </table></div>
         </div>
-
-        <div class="chat-input">
-        <input type="text" id="message" placeholder="send a message"/>
-        <button class="sendbutton" onClick={()=>SendMessage()}> Send </button>
         </div>
-
-        <div class="opponent-details"><table>
-            <tr><th><h3>{opp[0]}</h3></th>
-                <th><h3>{opp[1]}</h3></th>
-                <th><h3>{opp[2]}</h3></th>
-            </tr>
-        </table></div>
         </div>
-
     </>
-    </div>
 
     )
 }

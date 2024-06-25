@@ -137,8 +137,7 @@ const ProfilePage = () => {
         </table>
 
         <br />
-        <br />
-        <div style={{ paddingLeft: '50px' }}>
+        <div className='tmp'>
           <input
             type="text"
             id="friendName"
@@ -146,16 +145,10 @@ const ProfilePage = () => {
             value={inputData}
             onChange={handleChange}
             placeholder="Enter friend's name"
-            style={{
-              width: '450px',
-              height: '38px',
-              fontFamily: 'Trebuchet MS,Geneva, Tahoma, sans-serif',
-              fontSize: '20px',
-              paddingLeft: '10px',
-            }}
           />
+
           <button className="button" onClick={addFriend}>
-            + Add Friend
+          + Add Friend
           </button>
         </div>
       </div>

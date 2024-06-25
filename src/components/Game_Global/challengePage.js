@@ -10,30 +10,15 @@ const Challenge = () => {
     const [sendState, setSend] = useState([]);
     const [rcvdChallenges, setRcvdChallenges] = useState([]);
     const [toggle, setToggle] = useState(false);
+    try{const authT = document.cookie.split('; ').find(cookie => cookie.startsWith('authToken=')).split('=')[1];}
+    catch(error){
+        window.location.href = '/Verification';
+        console.log(error);
+    }
+    
     const authToken = document.cookie.split('; ').find(cookie => cookie.startsWith('authToken=')).split('=')[1];
 
     useEffect(() => {fetchData();}, []);
-
-    var socket = new WebSocket('ws://127.0.0.1:8000/ws/random_challenge/');
-    
-    socket.onmessage = function (e) {
-        var data = JSON.parse(e.data)
-        var message = data.message;
-        var player1_name = data.player1_name;
-        var player2_name = data.player2_name;
-        var room_code = data.room_code;
-        console.log(data)
-        console.log(player1_name, room_code)
-        if (message === 'You have been paired with another player.' && (player1_name === user || player2_name === user)) {
-            console.log("redirecting player 1")
-            console.log(room_code)
-            window.location.href = '/GlobalGame';
-        }
-    };
-
-    socket.onopen = function (e) {
-        socket.send('Waiting for random challenge...');
-    };
 
     const fetchData = async() =>{
         try{
@@ -54,8 +39,31 @@ const Challenge = () => {
             setRcvdChallenges(data.received_challenges);
 
         }catch(error){
+            window.location.href = '/Verification';
             console.log(error);
         }
+    };
+
+    
+    var socket = new WebSocket('ws://10.7.24.100:8000/ws/random_challenge/');
+    
+    socket.onmessage = function (e) {
+        var data = JSON.parse(e.data)
+        var message = data.message;
+        var player1_name = data.player1_name;
+        var player2_name = data.player2_name;
+        var room_code = data.room_code;
+        console.log(data)
+        console.log(player1_name, room_code)
+        if (message === 'You have been paired with another player.' && (player1_name === user || player2_name === user)) {
+            console.log("redirecting player 1")
+            console.log(room_code)
+            window.location.href = '/GlobalGame';
+        }
+    };
+
+    socket.onopen = function (e) {
+        socket.send('Waiting for random challenge...');
     };
 
     const randomChallenge = async() => {

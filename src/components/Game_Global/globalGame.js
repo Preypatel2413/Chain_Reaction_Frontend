@@ -70,6 +70,7 @@ const Game_GP = () => {
             setMove(data.move);
             setWin(data.win);
             setLastMove(data.lastmove);
+            console.log(data.lastmove);
             setChat(data.conv);
 
             // if(message === 'position_update'){
@@ -231,19 +232,21 @@ const Game_GP = () => {
             <table className={move % 2 === 1 ? 'tab1' : 'tab2'} align="center">
             {Position.map((row, rowIndex) => (
                 <tr key={rowIndex}>
-                {row.map((col, colIndex) => (
-                    <td key={colIndex} className={move % 2 === 1 ? 'tab1' : 'tab2'}>
+                {row.map((col, colIndex) => {
+                    const isLastMove = (rowIndex === lastmove[0] && colIndex === lastmove[1]);
+                    return (
+                    <td key={colIndex} className= {`tab${move % 2 === 1 ? '1' : '2'}`}>
                     <button
-                        className={`button button${move % 2 === 1 ? '2' : '1'}`}
+                        className={`${isLastMove ? 'button' : `button button${move % 2 === 1 ? '2' : '1'}`}`}
                         type="button"
                         id={`button_${colIndex}_${rowIndex}`}
                         onClick={() => updatePosition(rowIndex, colIndex, col, move)}
                     >
-                        <div>
+                        <div align="center" className={`${isLastMove ? 'last-move' : ''}`}>
                         {renderCell(col)}</div>
                     </button>
                     </td>
-                ))}
+                )})}
                 </tr>
             ))}
             </table>

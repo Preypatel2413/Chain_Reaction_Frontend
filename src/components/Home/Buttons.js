@@ -8,7 +8,7 @@ const Buttons = () =>{
                 <td className='pc'>
                     <Link to ={process.env.PUBLIC_URL + "/Challenge/"}>
                     <button type='button' className='button button1'>
-                        Multiplayer
+                        Online Game
                     </button>
                     </Link>
                 </td>
@@ -17,7 +17,7 @@ const Buttons = () =>{
                 <td className='pc'>
                     <Link to ={process.env.PUBLIC_URL + "/Singleplayer/"}>
                     <button type='button' className='button button2' >
-                        SinglePlayer
+                        Local Game
                     </button>
                     </Link>
                 </td>

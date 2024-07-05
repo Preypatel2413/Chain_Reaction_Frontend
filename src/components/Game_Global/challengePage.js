@@ -32,10 +32,10 @@ const Challenge = () => {
             } );
 
             const data = await response.json();
-            
+            setWait(data.waiting)
             setUser(data.username);
             setFriends(data.friends);
-            setSend(Array(data.friends.length).fill(true));
+            setSend(data.sent_challenges);
             setRcvdChallenges(data.received_challenges);
 
         }catch(error){
@@ -143,7 +143,7 @@ const Challenge = () => {
     const acceptChallenge = async(index) => {
         try{
             console.log("sendChallenge")
-            const response = await fetch(backend + 'api/acceptChallenge/' + friends[index].name + '/', {
+            const response = await fetch(backend + 'api/acceptChallenge/' + rcvdChallenges[index].name + '/', {
                 method: 'GET',
                 credentials:'include',
                 headers: {

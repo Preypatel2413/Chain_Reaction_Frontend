@@ -92,10 +92,20 @@ color: white;
 }
 
 .challenge-page-container .td_inner{
-    display: flex;
+    
     justify-content: flex-end;
 }
 
+
+.last-move {
+    /* border-width: 10px; */
+    display: flex;
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    border: 3px solid red;
+    /* border: solid red; Customize as needed */
+
+}
 .chat-panel {
     align-self: left;
     width: 30%;

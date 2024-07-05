@@ -48,6 +48,34 @@ const ProfilePage = () => {
           console.error("Error Fetching Data", error);
         }
     };
+    
+
+    const clearTrace = async() => {
+      try{
+
+        const authToken = document.cookie.split('; ').find(cookie => cookie.startsWith('authToken=')).split('=')[1];
+        const response = await fetch(backend + 'api/clearTrace/', {
+              method: 'GET',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': 'Token ' + authToken,
+              },
+          } );
+        
+          const data = await response.json();
+
+          if(data.success === 1){
+            Swal.fire({icon: 'success', text: data.message ,  timer: 2500})
+            setRef(!ref);
+          }else{
+            Swal.fire({icon: 'error', text: data.message ,  timer: 2500})
+          }
+
+      }catch(error){
+        console.error("Error Tracing Data", error);
+      }
+    }
+
 
     const addFriend = async () => {
         try{
@@ -90,8 +118,9 @@ const ProfilePage = () => {
       <div id="light"><Atoms /></div>
             
       <div className="blur profile-block">
-        <h2>{user.username}</h2>
-
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: "100%"}}><h2>{user.username}</h2>
+        <button className='button' onClick={clearTrace}>Clear Trace</button>
+        </div>
         <table>
           <tr>
             <th>

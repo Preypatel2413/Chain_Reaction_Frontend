@@ -112,3 +112,39 @@
     height: 100%;
     z-index: -1;
   }
+
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* bottom: 0; */
+    background: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background: #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    width: 700px;
+    /* max-width: 90%; */
+    max-height: 80vh; /* Set a max height */
+    overflow-y: auto;
+    position: relative;
+    border: 10px #000000;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  

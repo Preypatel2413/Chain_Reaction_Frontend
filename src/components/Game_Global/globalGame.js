@@ -44,7 +44,7 @@ const Game_GP = () => {
             } );
             const data = await response.json();
             
-            console.log(data);
+            // console.log(data);
             setRoomName(data.room_code);
             setUser(data.user_data);
             setPlayingAs(data.p);
@@ -58,19 +58,19 @@ const Game_GP = () => {
     };
 
     const connectWS = () => {
-        console.log("roomname : " + roomName)
-        console.log('ws://10.7.24.100:8000/ws/Game/' + roomName)
-        var socket = new WebSocket('ws://10.7.24.100:8000/ws/Game/' + roomName);
+        // console.log("roomname : " + roomName)
+        // console.log('wss://chain-reaction.preypatel.com/ws/Game/' + roomName)
+        var socket = new WebSocket('wss://chain-reaction.preypatel.com/ws/Game/' + roomName);
         socket.onmessage = function (e) {
             var data = JSON.parse(e.data);
             var message = data.message;
-            console.log(message);
+            // console.log(message);
             
             setPosition(data.position);
             setMove(data.move);
             setWin(data.win);
             setLastMove(data.lastmove);
-            console.log(data.lastmove);
+            // console.log(data.lastmove);
             setChat(data.conv);
 
             // if(message === 'position_update'){
@@ -92,7 +92,7 @@ const Game_GP = () => {
     }
 
     const updatePosition = async (row, col, v, mv) =>{
-        console.log(v,mv,PlayingAs);
+        // console.log(v,mv,PlayingAs);
 
         if(PlayingAs === 0 && mv%2===1){
             Swal.fire({title: 'Invalid Move!', text: 'It is opponents move.',confirmButtonText: 'OK', timer: 2500})
@@ -165,7 +165,7 @@ const Game_GP = () => {
 
     const SendMessage = async ()=>{
 
-        console.log("sending Message");
+        // console.log("sending Message");
         var message = document.getElementById("message").value;
         
         fetch(backend + 'api/sendMessage/'  + PlayingAs + "/" + message , {

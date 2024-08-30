@@ -15,7 +15,7 @@ const Buttons = () =>{
             </tr>
             <tr>
                 <td className='pc'>
-                    <Link to ={process.env.PUBLIC_URL + "/Singleplayer/"}>
+                    <Link to ={process.env.PUBLIC_URL + "/LocalGame/"}>
                     <button type='button' className='button button2' >
                         Local Game
                     </button>
@@ -23,6 +23,16 @@ const Buttons = () =>{
                 </td>
             </tr>
         </table>
+
+        <table className='pc'><tr>
+                <td className='pc'>
+                    <Link to ={process.env.PUBLIC_URL + "/Game_vs_AI/"}>
+                    <button type='button' className='button button3' >
+                        VS AI Agent
+                    </button>
+                    </Link>
+                </td>
+        </tr></table>
         </div>
     );
 };

@@ -19,7 +19,7 @@ const Login = () => {
             // Set CSRF token in state
             document.cookie = `csrftoken=${data.csrfToken}; path=/`;
             setToken(data.csrfToken);
-            console.log(data)
+            // console.log(data)
         } catch (error) {
             console.error('Error fetching CSRF token:', error);
         }
@@ -54,11 +54,11 @@ const Login = () => {
             if(data.success){
                 setToken(data.token);
                 document.cookie = `authToken=${data.token}; path=/`;
-                console.log(data.token)
+                // console.log(data.token)
                 window.location.href = '/Home';
             }else{
                 Swal.fire({title: data.errors, showCancelButton: true, })
-                console.log(data.errors);
+                // console.log(data.errors);
             }
         }catch(error){
             console.error('Signup Error:', error);

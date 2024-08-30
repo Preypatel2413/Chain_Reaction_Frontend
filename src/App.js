@@ -12,6 +12,7 @@ import Login from './components/Signup/Login';
 import { Link } from 'react-router-dom';
 import Verification from './components/Signup/VerificationPage';
 import Game_GP from './components/Game_Global/globalGame';
+import Game_vs_AI from './components/Game_vs_AI/Game_vs_AI';
 
 // import axios from 'axios';
 // axios.defaults.withCredentials = true
@@ -30,10 +31,12 @@ export const App = () => {
         <Route exact path={process.env.PUBLIC_URL + "/"} element={<HomePage />} />
         <Route exact path={process.env.PUBLIC_URL + "/Home"} element={<HomePage />} />
         <Route exact path={process.env.PUBLIC_URL + "/Profile"} element={<ProfilePage />} />
-        <Route exact path={process.env.PUBLIC_URL + "/Singleplayer"} element={<Game_SP />} />
+        <Route exact path={process.env.PUBLIC_URL + "/LocalGame"} element={<Game_SP />} />
         <Route exact path={process.env.PUBLIC_URL + "/Verification"} element={<Verification />} />
         <Route exact path={process.env.PUBLIC_URL + "/Challenge"} element={<Challenge />} />
         <Route exact path={process.env.PUBLIC_URL + "/GlobalGame"} element={<Game_GP />} />
+        <Route exact path={process.env.PUBLIC_URL + "/Game_vs_AI"} element={<Game_vs_AI />} />
+
         
         {/* <Route exact path={process.env.PUBLIC_URL + "/Login"} element={<Verification />} /> */}
       </Routes>

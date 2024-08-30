@@ -45,7 +45,7 @@ const Challenge = () => {
     };
 
     
-    var socket = new WebSocket('ws://10.7.24.100:8000/ws/random_challenge/');
+    var socket = new WebSocket('wss://chain-reaction.preypatel.com/ws/random_challenge/');
     
     socket.onmessage = function (e) {
         var data = JSON.parse(e.data)
@@ -53,11 +53,11 @@ const Challenge = () => {
         var player1_name = data.player1_name;
         var player2_name = data.player2_name;
         var room_code = data.room_code;
-        console.log(data)
-        console.log(player1_name, room_code)
+        // console.log(data);
+        // console.log(player1_name, room_code);
         if (message === 'You have been paired with another player.' && (player1_name === user || player2_name === user)) {
-            console.log("redirecting player 1")
-            console.log(room_code)
+            // console.log("redirecting player 1");
+            // console.log(room_code);
             window.location.href = '/GlobalGame';
         }
     };
@@ -69,7 +69,7 @@ const Challenge = () => {
     const randomChallenge = async() => {
         if(wait){
             try{
-                console.log("challenge")
+                // console.log("challenge");
                 const response = await fetch(backend + 'api/endWait/', {
                     method: 'GET',
                     credentials:'include',
@@ -84,7 +84,7 @@ const Challenge = () => {
             }
         }else{
             try{
-                console.log("challenge")
+                // console.log("challenge");
                 const response = await fetch(backend + 'api/randomChallenge/', {
                     method: 'GET',
                     credentials:'include',
@@ -104,7 +104,7 @@ const Challenge = () => {
     const sendChallenge = async(index) => {
         if(sendState[index]){
             try{
-                console.log("sendChallenge")
+                // console.log("sendChallenge");
                 const response = await fetch(backend + 'api/createChallenge/' + friends[index].name + '/', {
                     method: 'GET',
                     credentials:'include',
@@ -119,7 +119,7 @@ const Challenge = () => {
             }
         }else{
             try{
-                console.log("cancelChallenge")
+                // console.log("cancelChallenge");
                 const response = await fetch(backend + 'api/cancelChallenge/' + friends[index].name + '/', {
                     method: 'GET',
                     credentials:'include',
@@ -142,7 +142,7 @@ const Challenge = () => {
 
     const acceptChallenge = async(index) => {
         try{
-            console.log("sendChallenge")
+            // console.log("sendChallenge");
             const response = await fetch(backend + 'api/acceptChallenge/' + rcvdChallenges[index].name + '/', {
                 method: 'GET',
                 credentials:'include',

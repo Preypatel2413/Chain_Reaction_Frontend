@@ -26,7 +26,7 @@ const ProfilePage = () => {
 
           // const authToken = document.cookie['authtoken'];
           const authToken = document.cookie.split('; ').find(cookie => cookie.startsWith('authToken=')).split('=')[1];
-          console.log(authToken);
+          // console.log(authToken);
           const response = await fetch(backend + 'api/profile/', {
             method: 'GET',
             headers: {
@@ -35,7 +35,7 @@ const ProfilePage = () => {
             },
         } );
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
 
           // const userData = await userDataResponse.json();
           // const friendListData = await friendListResponse.json();
@@ -79,11 +79,11 @@ const ProfilePage = () => {
 
     const addFriend = async () => {
         try{
-          console.log(inputData)
+          // console.log(inputData);
           // const name = a;
           const authToken = document.cookie.split('; ').find(cookie => cookie.startsWith('authToken=')).split('=')[1];
-          console.log(authToken);
-          console.log(backend + 'api/addFriend/' + inputData + '/')
+          // console.log(authToken);
+          // console.log(backend + 'api/addFriend/' + inputData + '/')
           const response = await fetch(backend + 'api/addFriend/' + inputData + '/', {
               method: 'GET',
               headers: {
